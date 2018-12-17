@@ -1,0 +1,114 @@
+Install python 2.7
+python --version
+pip --version
+
+pip install robotframework==3.0.2
+pip unistall robotframework
+robot --version
+pybot --version
+
+pip install robotframework-ride
+
+http://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/
+
+ride.py
+
+New project -> Test suite -> Test case
+
+Install SeleniumLibrary
+pip install --upgrade robotframework-seleniumlibrary
+
+RIDE - Robot Framework's IDE (Integrated Development Environment)
+
+Pybot (Python), Jybot (Jython), Ipybot (IronPython)
+
+If pybot is not recognized:-
+1. pip unistall robotframework
+2. pip install robotframework==3.0.2
+
+
+
+Robot is an test automation framework
+
+What is automation testing?
+It is done using some automated tool that executes scripts and generates automatically for us
+
+What is a framework?
+Framework has some set of rules or best practices to achieve the desired result
+
+What is test automation framework?
+
+Types of automation testing:-
+1. Linear  (record and playback testing)
+You just have to write steps in sequential order
+
+Advantages:-
+There is no need to write custom code
+fastest way to generate test scripts
+workflow is easy to understand
+Disadvantages:-
+Scripts that we create are not reusable
+Maintenance is hassle at times of changes in application
+
+
+2. Modular Based
+testers break application under test into functions or sections and then create individual scripts for each section and then these scripts make for a bigger script
+
+Advantages:-
+If there is a chnage you have to just change the script of a particular section
+Scripts can be reused and hence easy to generate test cases
+Disadvantages:-
+Data is hard coded so script might not be reused
+Programming language is little bit needed 
+
+3. Library Architecture Testing
+
+4. Data driven testing
+
+5. Keyword-driven testing
+
+6. Hybrid testing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
