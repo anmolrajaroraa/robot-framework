@@ -63,11 +63,89 @@ Programming language is little bit needed
 
 3. Library Architecture Testing
 
+Advantages:-
+Higher degree of reusability
+Scalability
+Disadvantages:-
+Data is hard coded
+Technical expertise is needed 
+
 4. Data driven testing
+
+Advantage:-
+Tests can be executed with multiple data sets
+Hard coding is avoided
+Multiple scenarios can be tested
+Disadvantage:-
+knowledge regarding DB is needed
+Takes a lot of time to be set up
 
 5. Keyword-driven testing
 
+Advantages:-
+No scripting knowledge is needed
+Single keyword can be used multiple times
+Disadvantages:-
+Keywords management 
+
 6. Hybrid testing
+
+
+What is robot framework
+Test automation framework developed for acceptance testing
+
+Robot framework vs Selenium webdriver
+
+Robot features :-
+1. High level architecture
+2. Simple tabular syntax
+3. Data driven test cases
+4. Clear reports
+5. Detailed logs
+6. Generic Libraries
+7. Separate data editor
+8. Test case tagging
+9. Colour coding
+
+Variables
+It stores our values
+77B  -> A = 10
+
+Types of variables:- 
+1. Scalar
+${username}    ($->S->Scalar)
+
+2. List
+numbers = [10,20,30,40,50]
+numbers[0] -> 10
+numbers[4] -> 50
+credentials = [admin, 1234]
+@{credentials[0]}    (@->A->Array)
+@{credentials[1]}
+
+3. Dictionary
+
+oxford = {	ephemeral = not having long life, durable = having long life  }
+credentials = { username = admin, password = 1234 }
+&{credentials}[username]
+&{credentials}[password]
+
+
+4. Environmental variables
+%{username}, os
+
+5. Built-in variables
+${test_case}
+
+Https://Opensource-Demo.Orangehrmlive.Com/
+
+Keywords
+
+frame, locators, multiple browsers
+valid, invalid login
+
+Open Browser url1 chrome(1) alias=one
+Open Broswer url2 edge(2)   alias=two
 
 
 
