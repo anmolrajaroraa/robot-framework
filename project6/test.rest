@@ -1,0 +1,24 @@
+Example for rest format
+
+.. code:: robotframework
+
+    *** Settings ***
+    Library     OperatingSystem
+
+    *** Test Cases ***
+    Test1
+        [Documentation]     Example Test
+        Log To Console      Hello, world!
+        Check Directory    /workspace      Directory found
+
+    Test2
+        Should Be Equal     Hello, world!   Hello, world!
+
+Another comment to verify that robot ignores this line
+
+.. code:: robotframework
+
+    | *** Keyword ***   |
+    | Check Directory   | [Arguments]   | ${path}   | ${message}
+    |                   | Directory Should Exist    | ${path}
+    |                   | Log To Console            | ${message}
