@@ -1,0 +1,61 @@
+*** Settings ***
+Suite Setup       Log To Console    Suite execution started
+Suite Teardown    Log To Console    Suite execution has ended
+Library           SeleniumLibrary
+
+*** Variables ***
+${url}            http://google.com/
+${username}       admin
+@{credentials}    admin    admin123
+@{urls}           http://google.com/    http://facebook.com/
+&{login}          username=admin    password=admin123
+${desired_location}    https://opensource-demo.orangehrmlive.com/index.php/dashboard
+
+*** Test Cases ***
+Test1
+    [Setup]    Log To Console    Test1 will start
+    Open Browser    ${url}    chrome
+    Close Browser
+    Log To Console    Test finished
+
+Test2
+    [Tags]    severe
+    [Setup]    Log To Console    Test2 will start
+    Open Browser    https://opensource-demo.orangehrmlive.com/    chrome
+    Input Text    id=txtUsername    &{login}[username]
+    Input Password  id=txtPassword    &{login}[password]
+    Click Button    id=btnLogin
+    Close Browser
+    Log To Console    Username is %{username} and you're working on %{os}
+    Log To Console    Name of test case is ${test_name} and the tag used is @{test_tags}[0]
+
+Test3
+    [Tags]    Test3
+    [Setup]    Open Both Browsers
+    Go To    Https://Opensource-Demo.Orangehrmlive.Com/
+    Login With Valid Credentials
+    Do Required Work
+    Login With Invalid Credentials
+    Current Frame Should Contain    Username cannot be empty
+    [Teardown]    Close All Browsers
+
+*** Keywords ***
+Login With Valid Credentials
+    Input Text    id=txtUsername    &{login}[username]
+    Input Password    id=txtPassword    &{login}[password]
+    Click Button    id=btnLogin
+
+Login With Invalid Credentials
+    Input Text    id=txtUsername    ${EMPTY}
+    Input Password    id=txtPassword    ${EMPTY}
+    Click Button    id=btnLogin
+
+Open Both Browsers
+    Open Browser    Https://Opensource-Demo.Orangehrmlive.Com/    chrome    alias=one
+    Open Browser    htttp://google.com/    edge    alias=two
+
+Do Required Work
+    Wait Until Page Contains Element    id=menu_dashboard_index    10 seconds
+    ${location} =    Get Location
+    Should Be Equal    ${desired_location}    ${location}
+    Switch Browser    one
