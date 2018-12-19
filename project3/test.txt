@@ -1,0 +1,14 @@
+*Settings*	*Value*	*Value*	*Value*
+Documentation	Example file using TSV format		
+Library	OperatingSystem		
+			
+*Test Cases*			
+Test1	[Documentation]	Example test	
+	Log To Console	"Hello, world!"	
+	Check Directory	/workspace	Directory Found
+Test2	Should Be Equal	"Hello, world!"	"Hello, world!"
+			
+*Keywords*			
+Check Directory	[Arguments]	${path}	${message}
+	Directory Should Exist	${path}	
+	Log To Console	${message}	
