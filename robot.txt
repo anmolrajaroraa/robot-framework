@@ -134,7 +134,7 @@ credentials = { username = admin, password = 1234 }
 4. Environmental variables
 %{username}, os
 
-5. Built-in variables
+5. Built-in variables(automatic variables)
 ${test_case}
 
 Https://Opensource-Demo.Orangehrmlive.Com/
@@ -146,6 +146,35 @@ valid, invalid login
 
 Open Browser url1 chrome(1) alias=one
 Open Broswer url2 edge(2)   alias=two
+
+Setup - Keyword excuted before running any component/keyword
+Teardown - Keyword executed after running all components/keywords
+
+Structure of test suite file :-
+1. Settings - import libraries, define metadata
+2. Variables 
+3. Test cases - Create test cases from available keywords
+4. Keywords - Create our own keywords from other existing low-level keywords (wrappers)
+5. Comments - Addidtional comments or data, ignored by Robot
+
+*setting
+*** Settings ***
+
+*** Test Cases ***
+*test case**		*value*    *argument*
+
+Types of file formats:-
+1. Plain text format (.robot) - space separated format , pipe separated format
+2. TSV format (Tab separated values)(.txt)(excel/table)
+3. reStructuredText format (.rest)(.rst)
+4. html format (.html)
+
+
+pip install docutils
+
+Robot Framework, 
+robot {name_of_the_file}
+robot --extension txt {name_of_the_file}  
 
 
 
