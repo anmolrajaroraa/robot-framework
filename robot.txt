@@ -174,9 +174,51 @@ pip install docutils
 
 Robot Framework, 
 robot {name_of_the_file}
-robot --extension txt {name_of_the_file}  
+robot --extension txt {name_of_the_file}
 
 
+Pabot - Parallel test executor for Robot framework
+pip install -U robotframework-pabot
+pip show robotframework-pabot
+
+1. Pabot is going to run test suites parallely
+2. There can be problems where dependent tests or tests using same resources run concurrently.
+--pabotlib
+
+pabot --processes 2 robot
+rebot --version
+rebot output.xml
+rebot --include severe output.xml
+rebot --exclude severe output.xml
+robot --log NONE --report NONE robotTests
+
+rebot --name "Example Tests" "robotTests.Project1.Test Suite"/output.xml robotTests.Project2.Test/output.xml robotTests.Project3.Test/output.xml
+
+rebot --merge original.xml output.xml
+robot --output severe --include severe robotTests
+robot --output severe --log severe --report severe --include severe robotTests
+rebot --merge --name "Severe and tag" severe.xml tag.xml
+robot --output first robotTests
+robot --rerunfailed first.xml --output second robotTests
+robot --rerunfailed second.xml --output third robotTests
+rebot --merge first.xml second.xml third.xml
+robot --extension robot robotTests
+robot --extension robot:txt robotTests
+robot --test Test1 robotTests
+robot --test Test* robotTests
+robot --suite test robotTests
+robot --suite test* robotTests
+robot --suite *suite robotTests
+robot --suite test --test test1 robotTests
+robot --include severe --exclude tag robotTests
+robot --include severeORtag robotTests
+robot --include severeANDtag robotTests
+robot --rerunfailedsuites first.xml --output second robotTests
+
+
+
+
+  
 
 
 
