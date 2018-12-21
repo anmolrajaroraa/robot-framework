@@ -178,6 +178,186 @@ robot --extension txt {name_of_the_file}
 
 
 Pabot - Parallel test executor for Robot framework
+Install python 2.7
+python --version
+pip --version
+
+pip install robotframework==3.0.2
+pip unistall robotframework
+robot --version
+pybot --version
+
+pip install robotframework-ride
+
+http://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/
+
+ride.py
+
+New project -> Test suite -> Test case
+
+Install SeleniumLibrary
+pip install --upgrade robotframework-seleniumlibrary
+
+RIDE - Robot Framework's IDE (Integrated Development Environment)
+
+Pybot (Python), Jybot (Jython), Ipybot (IronPython)
+
+If pybot is not recognized:-
+1. pip unistall robotframework
+2. pip install robotframework==3.0.2
+
+
+
+Robot is an test automation framework
+
+What is automation testing?
+It is done using some automated tool that executes scripts and generates automatically for us
+
+What is a framework?
+Framework has some set of rules or best practices to achieve the desired result
+
+What is test automation framework?
+
+Types of automation testing:-
+1. Linear  (record and playback testing)
+You just have to write steps in sequential order
+
+Advantages:-
+There is no need to write custom code
+fastest way to generate test scripts
+workflow is easy to understand
+Disadvantages:-
+Scripts that we create are not reusable
+Maintenance is hassle at times of changes in application
+
+
+2. Modular Based
+testers break application under test into functions or sections and then create individual scripts for each section and then these scripts make for a bigger script
+
+Advantages:-
+If there is a chnage you have to just change the script of a particular section
+Scripts can be reused and hence easy to generate test cases
+Disadvantages:-
+Data is hard coded so script might not be reused
+Programming language is little bit needed 
+
+3. Library Architecture Testing
+
+Advantages:-
+Higher degree of reusability
+Scalability
+Disadvantages:-
+Data is hard coded
+Technical expertise is needed 
+
+4. Data driven testing
+
+Advantage:-
+Tests can be executed with multiple data sets
+Hard coding is avoided
+Multiple scenarios can be tested
+Disadvantage:-
+knowledge regarding DB is needed
+Takes a lot of time to be set up
+
+5. Keyword-driven testing
+
+Advantages:-
+No scripting knowledge is needed
+Single keyword can be used multiple times
+Disadvantages:-
+Keywords management 
+
+6. Hybrid testing
+
+
+What is robot framework
+Test automation framework developed for acceptance testing
+
+Robot framework vs Selenium webdriver
+
+Robot features :-
+1. High level architecture
+2. Simple tabular syntax
+3. Data driven test cases
+4. Clear reports
+5. Detailed logs
+6. Generic Libraries
+7. Separate data editor
+8. Test case tagging
+9. Colour coding
+
+Variables
+It stores our values
+77B  -> A = 10
+
+Types of variables:- 
+1. Scalar
+${username}    ($->S->Scalar)
+
+2. List
+numbers = [10,20,30,40,50]
+numbers[0] -> 10
+numbers[4] -> 50
+credentials = [admin, 1234]
+@{credentials[0]}    (@->A->Array)
+@{credentials[1]}
+
+3. Dictionary
+
+oxford = {	ephemeral = not having long life, durable = having long life  }
+credentials = { username = admin, password = 1234 }
+&{credentials}[username]
+&{credentials}[password]
+
+
+4. Environmental variables
+%{username}, os
+
+5. Built-in variables(automatic variables)
+${test_case}
+
+Https://Opensource-Demo.Orangehrmlive.Com/
+
+Keywords
+
+frame, locators, multiple browsers
+valid, invalid login
+
+Open Browser url1 chrome(1) alias=one
+Open Broswer url2 edge(2)   alias=two
+
+Setup - Keyword excuted before running any component/keyword
+Teardown - Keyword executed after running all components/keywords
+
+Structure of test suite file :-
+1. Settings - import libraries, define metadata
+2. Variables 
+3. Test cases - Create test cases from available keywords
+4. Keywords - Create our own keywords from other existing low-level keywords (wrappers)
+5. Comments - Addidtional comments or data, ignored by Robot
+
+*setting
+*** Settings ***
+
+*** Test Cases ***
+*test case**		*value*    *argument*
+
+Types of file formats:-
+1. Plain text format (.robot) - space separated format , pipe separated format
+2. TSV format (Tab separated values)(.txt)(excel/table)
+3. reStructuredText format (.rest)(.rst)
+4. html format (.html)
+
+
+pip install docutils
+
+Robot Framework, 
+robot {name_of_the_file}
+robot --extension txt {name_of_the_file}
+
+
+Pabot - Parallel test executor for Robot framework
 pip install -U robotframework-pabot
 pip show robotframework-pabot
 
@@ -214,13 +394,64 @@ robot --include severe --exclude tag robotTests
 robot --include severeORtag robotTests
 robot --include severeANDtag robotTests
 robot --rerunfailedsuites first.xml --output second robotTests
+robot --include severe --settag not_ready robotTests
+robot --noncritical smoke --critical severe robotTests
+robot --noncritical not_ready robotTests
+robot --outputdir ./results --log mylog.html --output myoutput.xml --report myreport.html robotTests
+robot --output ./outputs/new.xml --log ./logs/new.html --report ./reports/new.html robotTests
+robot --debugfile debug robotTests
+robot --timestampoutputs robotTests
+robot --reportbackground blue:orange robotTests
+robot --reportbackground blue:pink:orange robotTests
+Log levels:-
+FAIL
+WARN
+INFO
+DEBUG
+TRACE
+
+robot --loglevel TRACE robotTests
+
+
+
+
+1. Smoke - Test for the stability of the build
+
+2. Sanity - Test for all the critical cases
+
+3. Regression 
+
+4. Re-testing (--rerunfailed)
+
+
+Install jdk
+
+1. JAVA_HOME = C:\Program Files\Java\jdk1.8.0_101
+2. JRE_HOME = C:\Program Files\Java\jre1.8.0_101
+3. Set in path variable  = C:\Program Files\Java\jdk1.8.0_101\bin
+
+1. Download Jenkins.war
+2. java -jar jenkins.war --httpPort=9090
+3. When it says finished download metadata then go to browser -> localhost:9090
+4. Unlock Jenkins with password
+Go to users/username/.jenkins/secrets/initialAdminPassword
+5. Install suggested plugins
+6. Do not create a new user
+7. Dont Configure URL
+8. Install robot framework plugin
+9. Create a new job
+10. Click build now
+11. If you're unable to see reports and logs generated by rebot
+go to google -> jenkins content security policy
+Copy 'Unset the header' command 
+Go to Manage Jenkins -> Script Console -> Run command -> Build again
+
+Note - Give the correct paths for test suite folder as well as reports folder otherwise you will either see wrong graphs or nothing at all
 
 
 
 
   
-
-
 
 
 
